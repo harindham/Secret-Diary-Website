@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(array_key_exists("content",$_POST)){
-            $link=mysqli_connect("sdb-g.hosting.stackcp.net","secretdiaryusers-31383551ee","harindam18","secretdiaryusers-31383551ee");
+            $link=mysqli_connect("localhost","root","","secretdiaryusers-31383551ee");
             if(mysqli_connect_error()){
             die("error connecting to database");
             }

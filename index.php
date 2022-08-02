@@ -9,7 +9,7 @@
         header("location: main-page.php");
     }
     if(array_key_exists("submit",$_POST)){
-    $link=mysqli_connect("sdb-g.hosting.stackcp.net","secretdiaryusers-31383551ee","harindam18","secretdiaryusers-31383551ee");
+    $link=mysqli_connect("localhost","root","","secretdiaryusers-31383551ee");
     if(mysqli_connect_error()){
         die("error connecting to database");
     }
@@ -39,7 +39,7 @@
             if(mysqli_num_rows($result) > 0){
                 if($_POST['password']==$row['password']){
                     $_SESSION['id']=$row['id'];
-                    $_SESSION['Username']=$_POST['username'];
+                    $_SESSION['Username']=$row['Username'];
                     header("location: main-page.php");
                 }
                 else{
@@ -53,7 +53,6 @@
     }
     }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -164,9 +163,6 @@
     </form>
     <form method="post" class="form-group nodisplay" id="loginform">
       <fieldset class="form-group">
-        <input name="username" id="loginusername" type="text" class="form-control" placeholder="username">
-      </fieldset>
-      <fieldset class="form-group">
         <input name="email" id="loginemail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
       </fieldset>
       <fieldset class="form-group">
@@ -176,7 +172,7 @@
       <input name="submit" type="submit" class="btn btn-primary" value="login">
       </fieldset>
     </form>
-    <div id="loginline">already have an account?  <a id="loginswitch" style="color: white;">Login</a></div>
+    <div id="loginline">Already registered?  <a id="loginswitch" style="color: white;">Login</a></div>
     <div class="nodisplay" id="signupline"><a id="signupswitch">signup</a></div>
     </div>
     <div id="error">

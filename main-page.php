@@ -6,7 +6,7 @@
         header("location: index.php?logout=1");
     }
     if(array_key_exists("id",$_SESSION)){
-        $link=mysqli_connect("sdb-g.hosting.stackcp.net","secretdiaryusers-31383551ee","harindam18","secretdiaryusers-31383551ee");
+            $link=mysqli_connect("localhost","root","","secretdiaryusers-31383551ee");
             if(mysqli_connect_error()){
             die("error connecting to database");
             }
@@ -61,9 +61,9 @@
   <body>
         <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <span class="navbar-brand"><?php   echo(" Welcome <span style='color:red'> ".$_SESSION['Username']."</span>");          ?></span>
+          <span class="navbar-brand"><?php   echo(" Welcome <span style='font-family: impact;'> ".$_SESSION['Username']."</span>");          ?></span>
           <form method="post">
-            <input name="logout" type="submit" class="btn btn-info" value="Sign out">
+            <input name="logout" type="submit" class="btn btn-danger" value="Sign out">
           </form>
         </div>
       </nav>
@@ -71,20 +71,6 @@
         <span id="textareas"><textarea class="form-control" id="textarea1" placeholder="Start Writing here..." style="height: 100%;"><?php  echo($text); ?></textarea></Span>
         <button id="save" type="button" class="btn btn-success" style="float: right;">Save my text</button>
         <div id="two-btn">
-          <!--<nav aria-label="Page navigation example">-->
-          <!--  <ul class="pagination justify-content-center">-->
-          <!--    <li class="page-item">-->
-          <!--      <a class="page-link" href="#" tabindex="-1">Previous</a>-->
-          <!--    </li>-->
-          <!--    <li class="page-item active this-page" id="1"><a class="page-link" href="#"><span >1</span></a></li>-->
-          <!--    <li class="page-item" id="2"><a class="page-link" href="#"><span >2</span></a></li>-->
-          <!--    <li class="page-item" id="3"><a class="page-link" href="#"><span>3</span></a></li>-->
-          <!--    <li class="page-item">-->
-          <!--      <a id="next-page" class="page-link" href="#">Next</a>-->
-          <!--    </li>-->
-          <!--  </ul>-->
-          <!--</nav>-->
-          
         </div>
       </div>
     <script>
@@ -115,7 +101,7 @@
                 content: $("#textarea1").val()
             }
         }).done(function(msg){
-            alert("your text is saved");
+            alert("Saved Successfully!");
         })
        });
     </script>
